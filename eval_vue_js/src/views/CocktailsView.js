@@ -1,8 +1,5 @@
 const CocktailsView = {
    props:['cocktails'],
-   mounted(){
-    console.log(this.cocktails)
-   },
     template:` <section>
     <p>Il y a {{cocktails.length}} resultats</p>
      <div v-for="item in cocktails">
@@ -12,6 +9,12 @@ const CocktailsView = {
                  <img v-bind:src="item.strDrinkThumb">
              </div>
              <h3>{{item.strDrink}}</h3>
+             <div v-if="item.strAlcoholic === 'Alcoholic' ">
+             <sup>Alcool</sup>
+             </div>
+             <div v-if="item.strAlcoholic !== 'Alcoholic' ">
+                <sup>Sans-Alcool</sup>
+             </div>
             <p>Type de cocktail : {{ item.strCategory }}</p> 
             <div > 
              <h3>Voici les ingredients principaux : </h3>
